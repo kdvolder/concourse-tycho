@@ -1,0 +1,28 @@
+resources:
+- name: docker-git
+  type: git
+  source:
+    uri: git@github.com:kdvolder/concourse-tycho.git
+    branch: master
+    username: kdvolder
+    private_key: {{rsa_id}}
+    paths:
+    - concourse/docker
+- name: docker-image
+  type: docker-image
+  source:
+    username: {{docker_hub_username}}
+    email: {{docker_hub_email}}
+    password: {{docker_hub_password}}
+    repository: kdvolder/icewm
+jobs:
+- name: build-docker-image
+  serial: true
+  plan:
+  - get: docker-git
+    trigger: true
+  - put: docker-image
+    params:
+      build: docker-git/concourse/docker
+    get_params: 
+      skip_download: true

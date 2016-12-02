@@ -118,6 +118,8 @@
 			<artifactId>tycho-surefire-plugin</artifactId>
 			<version>${tycho-version}</version>
 			<configuration>
+			<useUIHarness>true</useUIHarness>
+			<useUIThread>true</useUIThread>
 				<testSuite>concourse.eclipse.junit</testSuite>
 				<testClass>concourse.eclipse.tests.AllTests</testClass>
 				<argLine>-Xmx512m</argLine>

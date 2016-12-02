@@ -60,6 +60,7 @@ If that is all setup properly, run the script:
 ```
 cd concourse
 ./set-pipeline.sh
+```
 
 The pipeline
 ============

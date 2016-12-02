@@ -5,4 +5,5 @@ export DISPLAY=:99
 xhost +
 icewm &
 cd testproject
+sleep 10s
 mvn clean integration-test

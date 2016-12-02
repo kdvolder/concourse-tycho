@@ -66,8 +66,8 @@ The pipeline
 ============
 
 The pipeline consists of two jobs. One job builds the docker image
-to be used as the build/test-env for the second job. The two 
-jobs run independently.
+to be used as the build/test-env for the second job. The second job
+executes a maven command to run the tests.
 
 
    

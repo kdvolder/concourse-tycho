@@ -40,7 +40,8 @@ jobs:
   - get: docker-image
     trigger: true
     params:
-      skip_download: true
+      # The task pulls the image itself, so skip downloading here
+      skip_download: true .
   - task: run-tests
     file: git/concourse/tasks/mvn-run.yml
 

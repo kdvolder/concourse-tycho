@@ -3,7 +3,7 @@ set -e
 Xvfb :99 &
 export DISPLAY=:99
 sleep 10s
-xhost +
+#xhost +
 icewm &
 cd testproject
 sleep 10s

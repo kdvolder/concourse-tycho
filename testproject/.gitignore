@@ -1,5 +1,1 @@
-/bin
-/apache-maven-2.2.1-bin.zip
-/spring-roo-1.1.3.RELEASE.zip
-CFcredentials.txt
-/.DS_Store
+target

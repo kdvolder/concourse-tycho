@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2015 Pivotal Software, Inc.
+ * Copyright (c) 2012, 2016 Pivotal Software, Inc.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -18,30 +18,28 @@
  *  Contributors:
  *     Pivotal Software, Inc. - initial API and implementation
  ********************************************************************************/
-package org.eclipse.cft.server.tests;
+package concourse.eclipse.tests;
 
-import org.eclipse.cft.server.tests.core.CloudUtilTest;
+import org.eclipse.cft.server.core.internal.CloudFoundryPlugin;
+import org.eclipse.core.resources.IProject;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import concourse.eclipse.tests.util.Utils;
+import junit.framework.TestCase;
 
-/**
- * @author Steffen Pingel
- */
-public class AllTests {
+public class CreateProjectTest extends TestCase {
 
-	public static final String PLUGIN_ID = "org.eclipse.cft.server.tests";
+	@Override
+	protected void setUp() throws Exception {
 
-	public static Test suite() {
-		return suite(false);
 	}
 
-	public static Test suite(boolean heartbeat) {
-		TestSuite suite = new ManagedTestSuite(AllTests.class.getName());
+	@Override
+	protected void tearDown() throws Exception {
+	}
 
-		suite.addTestSuite(CloudUtilTest.class);
-
-		return suite;
+	public void testCreateProject() throws Exception {
+		IProject project = Utils.createPredefinedProject("testProject", CloudFoundryPlugin.PLUGIN_ID);
+		assertNotNull(project);
 	}
 
 }

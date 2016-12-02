@@ -18,7 +18,7 @@
  *  Contributors:
  *     Pivotal Software, Inc. - initial API and implementation
  ********************************************************************************/
-package org.eclipse.cft.server.tests;
+package concourse.eclipse.tests;
 
 import java.net.ProxySelector;
 import java.net.URI;

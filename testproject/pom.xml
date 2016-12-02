@@ -61,7 +61,7 @@
 
     <tycho-version>0.22.0</tycho-version>
     <tycho-extras-version>${tycho-version}</tycho-extras-version>
-    <test.class>org.eclipse.cft.server.tests.AllCloudFoundryTests</test.class>
+    <test.class>concourse.eclipse.tests.AllTests</test.class>
 
 
     <maven.test.error.ignore>true</maven.test.error.ignore>
@@ -327,15 +327,15 @@
           <artifactId>tycho-surefire-plugin</artifactId>
           <version>${tycho-version}</version>
           <configuration>
-            <skip>${test.skip}</skip> 
-            <useUIThread>${test.useUIThread}</useUIThread>
+            <skip>false</skip> 
+            <useUIThread>true</useUIThread>
             <useUIHarness>true</useUIHarness>
             <forkedProcessTimeoutInSeconds>7200</forkedProcessTimeoutInSeconds>
             <showEclipseLog>true</showEclipseLog>
             <testSuite>${project.artifactId}</testSuite>
             <testClass>${test.class}</testClass>
             <argLine>
-              -Xmx1024m -XX:MaxPermSize=256m -Dtest.credentials=${bamboo.sts.cf.properties} -Djava.io.tmpdir=${project.build.directory} -Duser.home=${project.build.directory} ${test.vmargs}
+              -Xmx1024m -XX:MaxPermSize=256m
             </argLine>
             <appArgLine>
               -eclipse.keyring ${project.build.directory}/keystore -eclipse.password ${project.build.directory}/keystore.password
@@ -369,26 +369,6 @@
 	          <artifactId>tycho-p2-plugin</artifactId>
 	          <version>${tycho-version}</version>
 	     </plugin>
-         <plugin>
-             <groupId>org.apache.maven.plugins</groupId>
-             <artifactId>maven-antrun-plugin</artifactId>
-             <version>1.6</version>
-             <executions>
-                 <execution>
-                     <id>prepare-tests</id>
-                     <phase>pre-integration-test</phase>
-                     <configuration>
-                         <target>
-                             <!-- 				<ant antfile="../common/build.xml" target="prepare-tests">
-                              </ant> -->
-                         </target>
-                     </configuration>
-                     <goals>
-                         <goal>run</goal>
-                     </goals>
-                 </execution>
-             </executions>
-         </plugin>
          <plugin>
              <groupId>org.eclipse.tycho</groupId>
              <artifactId>tycho-source-plugin</artifactId>

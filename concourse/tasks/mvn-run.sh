@@ -6,7 +6,6 @@ echo "Waiting for xvfb"
 sleep 10s
 #xhost +
 icewm &
-echo "Waiting for icewm"
 cd testproject
-sleep 10s
+echo "Starting maven build"
 mvn clean integration-test

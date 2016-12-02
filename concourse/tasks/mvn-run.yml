@@ -20,6 +20,6 @@ inputs:
 - name: sts4
 
 run:
-  path: mvn
-  args: ["clean", "package"]
-  dir: sts4/vscode-extensions
+  path: ./concourse/tasks/mvn-run.sh
+  args: ["clean", "integration-test"]
+  dir: git

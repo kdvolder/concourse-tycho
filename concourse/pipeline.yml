@@ -1,4 +1,11 @@
 resources:
+- name: git
+  type: git
+  source:
+    uri: git@github.com:kdvolder/concourse-tycho.git
+    branch: master
+    username: kdvolder
+    private_key: {{rsa_id}}
 - name: docker-git
   type: git
   source:
@@ -26,3 +33,10 @@ jobs:
       build: docker-git/concourse/docker
     get_params: 
       skip_download: true
+- name: run-tests
+  plan:
+  - get: git
+    trigger: true
+  - task: run-tests
+    file: git/concourse/tasks/mvn-run.yml
+

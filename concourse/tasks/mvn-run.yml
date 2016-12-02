@@ -17,7 +17,7 @@ image_resource:
     repository: kdvolder/sts4-build-env
 
 inputs:
-- name: sts4
+- name: git
 
 run:
   path: ./concourse/tasks/mvn-run.sh

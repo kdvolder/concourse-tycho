@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
-xvfb :99 &
+Xvfb :99 &
 export DISPLAY=:99
-xhost +
+#xhost +
 icewm &
 cd testproject
 sleep 10s

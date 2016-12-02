@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+
+cd testproject
 xvfb-run mvn clean integration-test
 
 # Xvfb :99 &

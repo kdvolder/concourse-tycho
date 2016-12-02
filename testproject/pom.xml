@@ -133,8 +133,16 @@
 			<artifactId>tycho-surefire-plugin</artifactId>
 			<version>${tycho-version}</version>
 			<configuration>
-				<testSuite>concourse.eclipse.tests.AllTests</testSuite>
-				<testClass>concourse.eclipse.tests.CreateProjectTest</testClass>
+				<testSuite>concourse.eclipse.junit</testSuite>
+				<testClass>concourse.eclipse.tests.AllTests</testClass>
+				<argLine>-Xmx512m</argLine>
+				  <bundleStartLevel>
+              <bundle>
+                 <id>concourse.eclipse.junit</id>
+                 <level>1</level>
+                 <autoStart>true</autoStart>
+              </bundle>
+           </bundleStartLevel>
 			</configuration>
 		</plugin>
     </plugins>

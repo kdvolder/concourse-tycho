@@ -32,30 +32,15 @@
   </prerequisites>
 
 
-  <properties>
-    <!-- CloudFloundry Properties -->
-<!--     <p2.qualifier>SNAPSHOT</p2.qualifier>
-    <p2.repository.name>Cloud Foundry Tools</p2.repository.name>
+	<properties>
+		<test.useUIThread>true</test.useUIThread>
+		<tycho-version>0.26.0</tycho-version>
+		<tycho-extras-version>${tycho-version}</tycho-extras-version>
 
-    <dist.name>Cloud Foundry Tools</dist.name>
-    <dist.project>cft</dist.project>
-    <dist.target.classifier>cloudfoundry-${dist.target}</dist.target.classifier>
-
-    Common Properties
-    <skip.source.check>true</skip.source.check>
- -->    
- 
- <test.vmargs>${test.osvmargs}</test.vmargs>
-    <test.osvmargs></test.osvmargs>
-    <test.useUIThread>true</test.useUIThread>
-
-    <tycho-version>0.26.0</tycho-version>
-    <tycho-extras-version>${tycho-version}</tycho-extras-version>
-
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <encoding>UTF-8</encoding>
-  </properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<encoding>UTF-8</encoding>
+	</properties>
 
 
 

@@ -20,10 +20,10 @@
  ********************************************************************************/
 package concourse.eclipse.tests;
 
-import org.eclipse.cft.server.core.internal.CloudFoundryPlugin;
-import org.eclipse.core.resources.IProject;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 
-import concourse.eclipse.tests.util.Utils;
+import concourse.eclipse.tests.util.ACondition;
 import junit.framework.TestCase;
 
 public class CreateProjectTest extends TestCase {
@@ -38,8 +38,12 @@ public class CreateProjectTest extends TestCase {
 	}
 
 	public void testCreateProject() throws Exception {
-		IProject project = Utils.createPredefinedProject("testProject", CloudFoundryPlugin.PLUGIN_ID);
-		assertNotNull(project);
+
+		ACondition.waitFor("workbench", 60000, () -> {
+			IWorkbenchWindow workenchWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			assertNotNull(workenchWindow);
+		});
+
 	}
 
 }

@@ -21,7 +21,7 @@ resources:
     username: {{docker_hub_username}}
     email: {{docker_hub_email}}
     password: {{docker_hub_password}}
-    repository: kdvolder/icewm
+    repository: kdvolder/tycho-test-env
 jobs:
 - name: build-docker-image
   serial: true
@@ -37,6 +37,10 @@ jobs:
   plan:
   - get: git
     trigger: true
+  - get: docker-image
+    trigger: true
+    params:
+      skip_download: true
   - task: run-tests
     file: git/concourse/tasks/mvn-run.yml
 

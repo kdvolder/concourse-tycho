@@ -14,7 +14,7 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: kdvolder/icewm
+    repository: kdvolder/tycho-test-env
 
 inputs:
 - name: git
